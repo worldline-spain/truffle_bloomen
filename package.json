@@ -7,6 +7,7 @@
     "test": "test"
   },
   "scripts": {
+    "test": "truffle test",
     "console": "truffle console",
     "wclean": "rd /s /q build",
     "development": "truffle migrate",

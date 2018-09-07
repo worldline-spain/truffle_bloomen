@@ -24,7 +24,7 @@ contract BloomenIndex {
         _;
     }
 
-    // @dev BloomenIndex.deployed().then(function(instance){return instance.createMusicShop("Cds WL", "0x3b4c4ae5194a7134ab182ccfbd9fd3605dd54ecb")}); The second parameter must be a valid Coin address.
+    // @dev BloomenIndex.deployed().then(function(instance){return instance.createMusicShop("Cds WL")}); The second parameter must be a valid Coin address.
     function createMusicShop(string _name) public restrictedName(_name) {
         address musicShop = address(new MusicShop(_name, msg.sender));
         musicShopsMap[musicShop] = _name;

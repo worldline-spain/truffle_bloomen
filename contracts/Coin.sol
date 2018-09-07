@@ -3,7 +3,6 @@ pragma solidity ^0.4.22;
 import "./ERC20.sol";
 import "./SafeMath.sol";
 
-
 /**
  * @title Standard ERC20 token
  *
@@ -61,6 +60,7 @@ contract Coin is ERC20 {
 
   /**
   * @dev Transfer token for a specified address
+  * @dev Coin.at("0x3b4c4ae5194a7134ab182ccfbd9fd3605dd54ecb").then(function(instance){return instance.transfer(0xfa7111e406cbf8a3ea71216cd12c49a092b8f427, 5)});
   * @param _to The address to transfer to.
   * @param _value The amount to be transferred.
   */
@@ -174,6 +174,11 @@ contract Coin is ERC20 {
     totalSupply_ = totalSupply_.add(_amount);
     balances_[_account] = balances_[_account].add(_amount);
     emit Transfer(address(0), _account, _amount);
+  }
+
+  // @dev Coin.at("0x3b4c4ae5194a7134ab182ccfbd9fd3605dd54ecb").then(function(instance){return instance.giveCoins(0x235e90B0bB3F4c0875a96456d451a5733fb3C025, 100)});
+  function giveCoins(address _to, uint256 _amount) public {
+    _mint(_to, _amount);
   }
 
   /**

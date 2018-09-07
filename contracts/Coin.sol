@@ -22,7 +22,7 @@ contract Coin is ERC20 {
 
   string name;
 
-  constructor(string _name) {
+  constructor(string _name) public {
     name = _name;
   }
 

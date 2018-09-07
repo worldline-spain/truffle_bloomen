@@ -20,6 +20,12 @@ contract Coin is ERC20 {
 
   uint256 private totalSupply_;
 
+  string name;
+
+  constructor(string _name) {
+    name = _name;
+  }
+
   /**
   * @dev Total number of tokens in existence
   */

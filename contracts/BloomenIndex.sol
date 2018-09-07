@@ -24,6 +24,16 @@ contract BloomenIndex {
         _;
     }
 
+    // @dev BloomenIndex.deployed().then(function(instance){return instance.workForMeScript()});
+    function workForMeScript() public {
+        this.createCoin("CryptoD");
+        this.createMusicShop("Cds WL");
+        address[] memory coin;
+        address[] memory musicShop;
+        (coin,) = this.getCoins();
+        (musicShop, ) = this.getMusicShops();
+    }
+
     // @dev BloomenIndex.deployed().then(function(instance){return instance.createMusicShop("Cds WL")}); The second parameter must be a valid Coin address.
     function createMusicShop(string _name) public restrictedName(_name) {
         address musicShop = address(new MusicShop(_name, msg.sender));

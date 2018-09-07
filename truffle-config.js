@@ -11,7 +11,7 @@ module.exports = {
       port: process.env.DEVELOPMENT_PORT, 
       network_id: "*", 
       gasPrice: 0,
-      gas: 4500000,
+      gas: 6721975,
       from: process.env.DEVELOPMENT_ACCOUNT,
     },
     alastria: {

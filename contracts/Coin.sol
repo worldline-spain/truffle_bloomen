@@ -2,6 +2,7 @@ pragma solidity ^0.4.22;
 
 import "./ERC20.sol";
 import "./SafeMath.sol";
+import "./Ownable.sol";
 
 /**
  * @title Standard ERC20 token
@@ -10,7 +11,7 @@ import "./SafeMath.sol";
  * https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md
  * Originally based on code by FirstBlood: https://github.com/Firstbloodio/token/blob/master/smart_contract/FirstBloodToken.sol
  */
-contract Coin is ERC20 {
+contract Coin is ERC20, Ownable {
   using SafeMath for uint256;
 
   mapping (address => uint256) private balances_;
@@ -177,7 +178,7 @@ contract Coin is ERC20 {
   }
 
   // @dev Coin.at("0x3b4c4ae5194a7134ab182ccfbd9fd3605dd54ecb").then(function(instance){return instance.giveCoins('0x235e90B0bB3F4c0875a96456d451a5733fb3C025', 100)});
-  function giveCoins(address _to, uint256 _amount) public {
+  function giveCoins(address _to, uint256 _amount) public onlyOwner {
     _mint(_to, _amount);
   }
 

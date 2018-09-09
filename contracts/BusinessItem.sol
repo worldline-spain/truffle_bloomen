@@ -1,8 +1,9 @@
 pragma solidity ^0.4.22;
 
 import "./Ownable.sol";
+import "./Helper.sol";
 
-contract BusinessItem is Ownable {
+contract BusinessItem is Ownable, Helper {
 
     string name;
     address coin;

@@ -3,12 +3,9 @@ pragma solidity ^0.4.22;
 import "./MusicShop.sol";
 import "./WebTv.sol";
 import "./Coin.sol";
-import "./Strings.sol";
+import "./Helper.sol";
 
-contract BloomenIndex {
-    
-    //@dev https://github.com/Arachnid/solidity-stringutils
-    using Strings for *;
+contract BloomenIndex is Helper {
 
     //@dev Mappings do not store their keys, only the value which is stored at the state memory address calculated by a sha3 hash of the key itself. Any lookup into a mapping has to provide that original key or be able to calculate it.
     mapping (address => string) musicShopsMap;
@@ -17,12 +14,6 @@ contract BloomenIndex {
     address[] webTvs;
     mapping (address => string) coinsMap;
     address[] coins;
-    string constant separator = "-";
-
-    modifier restrictedName(string _name) {
-        require(_name.toSlice().find(separator.toSlice()).len() == 0);
-        _;
-    }
 
     // @dev BloomenIndex.deployed().then(function(instance){return instance.workForMeScript()});
     function workForMeScript() public {
@@ -36,23 +27,29 @@ contract BloomenIndex {
 
     // @dev BloomenIndex.deployed().then(function(instance){return instance.createMusicShop("Cds WL")}); The second parameter must be a valid Coin address.
     function createMusicShop(string _name) public restrictedName(_name) {
-        address musicShop = address(new MusicShop(_name, msg.sender));
-        musicShopsMap[musicShop] = _name;
-        musicShops.push(musicShop);
+        MusicShop musicShop = new MusicShop(_name);
+        musicShop.transferOwnership(msg.sender);
+        address musicShopAddress = address(musicShop);
+        musicShopsMap[musicShopAddress] = _name;
+        musicShops.push(musicShopAddress);
     }
 
     //@dev BloomenIndex.deployed().then(function(instance){return instance.createWebTv("Nexflit")});
     function createWebTv(string _name) public restrictedName(_name) {
-        address webTv = address(new WebTv(_name, msg.sender));
-        webTvsMap[webTv] = _name;
-        webTvs.push(webTv);
+        WebTv webTv = new WebTv(_name);
+        webTv.transferOwnership(msg.sender);
+        address webTvAddress = address(webTv);
+        webTvsMap[webTvAddress] = _name;
+        webTvs.push(webTvAddress);
     }
 
     // @dev BloomenIndex.deployed().then(function(instance){return instance.createCoin("CryptoD")});
     function createCoin(string _name) public restrictedName(_name) {
-        address coin = address(new Coin(_name));
-        coinsMap[coin] = _name;
-        coins.push(coin);
+        Coin coin = new Coin(_name);
+        coin.transferOwnership(msg.sender);
+        address coinAddress = address(coin);
+        coinsMap[coinAddress] = _name;
+        coins.push(coinAddress);
     }
 
     // @dev BloomenIndex.deployed().then(function(instance){return instance.getMusicShops()});

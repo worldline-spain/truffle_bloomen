@@ -35,12 +35,10 @@ contract MusicShop is BusinessItem {
         return (songs, names);
     }
 
-    function buy(string _name) public {
-        for (uint i = 0; i < songs_list.length; ++i) {
-            if (songs_list[i].getName() == _name) {
-                songs_list[i].allow(msg.sender);
-            }
-        }
+    function buySong(address _songAddress) public {
+        require(bytes(songsMap[_songAddress]).length != 0);
+        Song song = Song(_songAddress);
+        song.allow(msg.sender);
     }
 
 }

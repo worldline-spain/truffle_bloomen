@@ -6,7 +6,6 @@ import "./Helper.sol";
 contract BusinessItem is Ownable, Helper {
 
     string name;
-    address coin;
 
     // @dev MusicShop.at("0xe0d0b31441d617ceb9876c6f126710ed04f7c9a3").then(function(instance){return instance.getName()}); The parameter at "at" function must be a valid MusicShop address.
     // @dev WebTv.at("0xe0d0b31441d617ceb9876c6f126710ed04f7c9a3").then(function(instance){return instance.getName()}); The parameter at "at" function must be a valid WebTv address.
@@ -18,17 +17,6 @@ contract BusinessItem is Ownable, Helper {
     // @dev WebTv.at("0xe0d0b31441d617ceb9876c6f126710ed04f7c9a3").then(function(instance){return instance.getOwner()});
     function getOwner() public view returns (address) {
         return owner;
-    }
-
-    // @dev MusicShop.at("0xe0d0b31441d617ceb9876c6f126710ed04f7c9a3").then(function(instance){return instance.setCoin(0xaklsdñlsakdlñsa)});
-    function setCoin(address _coin) public { 
-        coin = _coin;
-    }
-
-    // @dev MusicShop.at("0xe0d0b31441d617ceb9876c6f126710ed04f7c9a3").then(function(instance){return instance.getCoin()});
-    // @dev WebTv.at("0xe0d0b31441d617ceb9876c6f126710ed04f7c9a3").then(function(instance){return instance.getCoin()});
-    function getCoin() public view returns (address) {
-        return coin;
     }
 
 }

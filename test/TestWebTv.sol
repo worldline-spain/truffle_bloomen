@@ -20,11 +20,4 @@ contract TestWebTv {
     Assert.equal(expected, owner, "The getOwner of the WebTv has been done unsuccessfully");
   }*/
 
-  function testSetGetCoin() public {
-    webTv.setCoin(0x3B4c4ae5194A7134AB182CcFBD9Fd3605dD54EcB);
-    address coin = webTv.getCoin();  
-    address expected = 0x3B4c4ae5194A7134AB182CcFBD9Fd3605dD54EcB;
-    Assert.equal(expected, coin, "The getCoin of the WebTv has been done unsuccessfully");
-  }
-
 }

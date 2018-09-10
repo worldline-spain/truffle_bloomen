@@ -20,13 +20,6 @@ contract TestMusicShop {
     Assert.equal(expected, owner, "The getOwner of the MusicShop has been done unsuccessfully");
   }*/
 
-  function testSetGetCoin() public {
-    musicShop.setCoin(0x3B4c4ae5194A7134AB182CcFBD9Fd3605dD54EcB);
-    address coin = musicShop.getCoin();  
-    address expected = 0x3B4c4ae5194A7134AB182CcFBD9Fd3605dD54EcB;
-    Assert.equal(expected, coin, "The getCoin of the MusicShop has been done unsuccessfully");
-  }
-
   function testCreateGetSong() public {
     musicShop.createSong("Sing Sang Song", "Eichiro", 20);
     string memory name;

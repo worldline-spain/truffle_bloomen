@@ -178,7 +178,7 @@ contract Coin is ERC20, Ownable {
   }
 
   // @dev Coin.at("0x3b4c4ae5194a7134ab182ccfbd9fd3605dd54ecb").then(function(instance){return instance.giveCoins('0x235e90B0bB3F4c0875a96456d451a5733fb3C025', 100)});
-  function giveCoins(address _to, uint256 _amount) public /* onlyOwner */ {
+  function giveCoins(address _to, uint256 _amount) public onlyOwner {
     _mint(_to, _amount);
   }
 

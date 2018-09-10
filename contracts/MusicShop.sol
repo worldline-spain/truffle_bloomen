@@ -13,7 +13,7 @@ contract MusicShop is BusinessItem {
     }
 
     // @dev MusicShop.at("0x23b6343f943c6c254457d01143b6bfc60798630d").then(function(instance) { return instance.createSong("Sing Sang Song", "Eichiro", 20)});
-    function createSong(string _name, string _author, uint32 _price) public /* onlyOwner */ restrictedName(_name) restrictedName(_author) {
+    function createSong(string _name, string _author, uint32 _price) public onlyOwner restrictedName(_name) restrictedName(_author) {
         Song s = new Song(_name, _author, _price);
         address song = address(s);
         songsMap[song] = _name;
@@ -35,12 +35,12 @@ contract MusicShop is BusinessItem {
         return (songs, names);
     }
 
-    function buy(string _name) public {
+    /*function buy(string _name) public {
         for (uint i = 0; i < songs_list.length; ++i) {
             if (songs_list[i].getName() == _name) {
                 songs_list[i].allow(msg.sender);
             }
         }
-    }
+    }*/
 
 }

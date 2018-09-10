@@ -15,16 +15,6 @@ contract BloomenIndex is Helper {
     mapping (address => string) coinsMap;
     address[] coins;
 
-    // @dev BloomenIndex.deployed().then(function(instance){return instance.workForMeScript()});
-    function workForMeScript() public {
-        this.createCoin("CryptoD");
-        this.createMusicShop("Cds WL");
-        address[] memory coin;
-        address[] memory musicShop;
-        (coin,) = this.getCoins();
-        (musicShop, ) = this.getMusicShops();
-    }
-
     // @dev BloomenIndex.deployed().then(function(instance){return instance.createMusicShop("Cds WL")});
     function createMusicShop(string _name) public restrictedName(_name) {
         MusicShop musicShop = new MusicShop(_name);

@@ -2,6 +2,7 @@ pragma solidity ^0.4.22;
 
 import "./BusinessItem.sol";
 import "./Song.sol";
+import "./Coin.sol";
 
 contract MusicShop is BusinessItem {
 
@@ -35,9 +36,11 @@ contract MusicShop is BusinessItem {
         return (songs, names);
     }
 
-    function buySong(address _songAddress) public {
+    function buySong(address _songAddress, address _coinAddress) public {
         require(bytes(songsMap[_songAddress]).length != 0);
         Song song = Song(_songAddress);
+        Coin coin = Coin(_coinAddress);
+        coin.transferFrom(msg.sender, this, song.getPrice());
         song.allow(msg.sender);
     }
 

@@ -25,7 +25,7 @@ contract BloomenIndex is Helper {
         (musicShop, ) = this.getMusicShops();
     }
 
-    // @dev BloomenIndex.deployed().then(function(instance){return instance.createMusicShop("Cds WL")}); The second parameter must be a valid Coin address.
+    // @dev BloomenIndex.deployed().then(function(instance){return instance.createMusicShop("Cds WL")});
     function createMusicShop(string _name) public restrictedName(_name) {
         MusicShop musicShop = new MusicShop(_name);
         musicShop.transferOwnership(msg.sender);

@@ -27,4 +27,12 @@ contract TestMusicShop {
     Assert.equal(expected, coin, "The getCoin of the MusicShop has been done unsuccessfully");
   }
 
+  function testCreateGetSong() public {
+    musicShop.createSong("Sing Sang Song", "Eichiro", 20);
+    string memory name;
+    string memory expected = "Sing Sang Song";
+    (,name) = musicShop.getSongs();
+    Assert.equal(expected, name, "The create or the get song of the MusicShop has been done unsuccesffuly");
+  }
+
 }

@@ -22,11 +22,13 @@ contract MusicShop is BusinessItem {
         songs_list.push(s);
     }
 
-    // @dev MusicShop.at("0x23b6343f943c6c254457d01143b6bfc60798630d").then(function(instance) { return instance.getSongs()});
-    function getSongs() public view returns (address[], string) {
+    // @dev MusicShop.at("0x23b6343f943c6c254457d01143b6bfc60798630d").then(function(instance) {return instance.showSongs()});
+    function showSongs() public view returns (address[], string, uint32[]) {
         string memory names;
+        uint32[] memory prices = new uint32[](songs_list.length);
         for (uint i = 0; i < songs.length; i++) {
             string memory part;
+            prices[i] = songs_list[i].getPrice();
             if (i != 0) {
                 part = separator.toSlice().concat(songsMap[songs[i]].toSlice());
             } else {
@@ -34,16 +36,7 @@ contract MusicShop is BusinessItem {
             }
             names = names.toSlice().concat(part.toSlice());
         }
-        return (songs, names);
-    }
-
-    // @dev MusicShop.at("0x23b6343f943c6c254457d01143b6bfc60798630d").then(function(instance) {return instance.showSongs()});
-    function showSongs() public view returns (address[], uint32[]) {
-        uint32[] memory prices = new uint32[](songs_list.length);
-        for (uint i = 0; i < songs_list.length; i++) {
-            prices[i] = songs_list[i].getPrice();
-        }
-        return (songs, prices);
+        return (songs, names, prices);
     }
 
 }

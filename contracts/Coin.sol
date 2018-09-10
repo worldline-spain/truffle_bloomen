@@ -75,7 +75,7 @@ contract Coin is ERC20, Ownable {
     return true;
   }
 
-  /**
+  /** @dev Coin.at("0xc24c27e053c473f88ef51a92078a79d54ccec1bf").then(function(instance){return instance.approve('0xef75fe66c16771fe37d877da2c14083afd61e475', 20)});
    * @dev Approve the passed address to spend the specified amount of tokens on behalf of msg.sender.
    * Beware that changing an allowance with this method brings the risk that someone may use both the old
    * and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this

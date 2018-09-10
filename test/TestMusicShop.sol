@@ -25,7 +25,7 @@ contract TestMusicShop {
     string memory name;
     string memory expected = "Sing Sang Song";
     (,name) = musicShop.showSongs();
-    Assert.equal(expected, name, "The create or the get song of the MusicShop has been done unsuccesffuly");
+    Assert.equal(expected, name, "The create or the get song of the MusicShop has been done unsuccesfully");
   }
 
 }

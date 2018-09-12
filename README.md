@@ -1,6 +1,6 @@
 # truffle_bloomen
 ## Description
-**truffle_bloomen** is an experimental project with Smart Contracts deployed to an Ethereum local network. It consist of a smart contract named BloomenIndex, 
+**truffle_bloomen** is an experimental project with Smart Contracts deployed to an Ethereum local network. It consist of a smart contract named BloomenIndex.
 ## Getting started
 ### Requirements
 #### Node.js
@@ -35,7 +35,7 @@ DEVELOPMENT_PORT=7545
 ```
 Now you can interact with BloomenIndex through the console by calling some methods in JavaScript language.
 ## Interacting with the Smart Contracts
-First of all lets create a new currency:
+First of all let's create a new currency:
 ```javascript
 BloomenIndex.deployed().then(function(instance){return instance.createCoin("CryptoCurrencyName")});
 ```

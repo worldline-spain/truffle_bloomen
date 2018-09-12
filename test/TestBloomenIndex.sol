@@ -1,11 +1,16 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.4.22;
 
 import "truffle/Assert.sol";
 import "truffle/DeployedAddresses.sol";
 import "../contracts/BloomenIndex.sol";
 
 contract TestBloomenIndex {
-  BloomenIndex bloomenIndex = BloomenIndex(DeployedAddresses.BloomenIndex());
+  
+  BloomenIndex bloomenIndex;
+  
+  function beforeAll() public {
+    bloomenIndex = BloomenIndex(DeployedAddresses.BloomenIndex());
+  } 
 
   function testCreateGetCoin() public {
     bloomenIndex.createCoin("Coin");

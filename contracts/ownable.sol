@@ -36,9 +36,4 @@ contract Ownable {
     owner = newOwner;
   }
 
-  // @dev MusicShop.at("0x23b6343f943c6c254457d01143b6bfc60798630d").then(function(instance) {return instance.getOwner()});
-  function getOwner() public view returns(address) {
-    return owner;
-  }
-
 }

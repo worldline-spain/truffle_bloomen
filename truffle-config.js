@@ -5,12 +5,18 @@ var Web3 = require('web3');
 console.log(process.env.DEVELOPMENT_ACCOUNT);
 
 module.exports = {
+  solc: {
+    optimizer: {
+      enabled: true,
+      runs: 200
+    }
+  },
   networks: {
    development: {
       host: process.env.DEVELOPMENT_HOST,
       port: process.env.DEVELOPMENT_PORT, 
       network_id: "*", 
-      gasPrice: 0,
+      gasPrice: 2000000000,
       gas: 6721975,
       from: process.env.DEVELOPMENT_ACCOUNT,
     },

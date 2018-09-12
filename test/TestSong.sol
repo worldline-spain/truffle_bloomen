@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.4.22;
 
 import "truffle/Assert.sol";
 import "truffle/DeployedAddresses.sol";
@@ -6,7 +6,11 @@ import "../contracts/Song.sol";
 
 contract TestSong {
 
-  Song song = new Song("Sing Sang Song", "Eichiro", 20);  
+  Song song;
+  
+  function beforeAll() public {
+    song = new Song("Sing Sang Song", "Eichiro", 20);
+  }
 
   function testGetName() public {
     string memory name = song.getName();  
@@ -20,10 +24,10 @@ contract TestSong {
     Assert.equal(expected, author, "The get author of the Song has been done unsuccessfully");
   }
 
-  /* function testGetPrice() public {
-    uint32 price = song.getPrice();
-    uint32 expected = 20;
-    Assert.equal(expected, price, "The get price of the Song has been done unsuccessfully");
-  } */
+  // function testGetPrice() public {
+  //   uint256 price = song.getPrice();
+  //   uint256 expected = 20;
+  //   Assert.equal(expected, price, "The get price of the Song has been done unsuccessfully");
+  // } 
 
 }

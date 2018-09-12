@@ -61,7 +61,7 @@ contract Coin is ERC20, Ownable {
 
   /**
   * @dev Transfer token for a specified address
-  * @dev Coin.at("0x3b4c4ae5194a7134ab182ccfbd9fd3605dd54ecb").then(function(instance){return instance.transfer('0xfa7111e406cbf8a3ea71216cd12c49a092b8f427', 5)});
+  * @dev Coin.at("").then(function(instance){return instance.transfer('', 5)});
   * @param _to The address to transfer to.
   * @param _value The amount to be transferred.
   */
@@ -75,7 +75,7 @@ contract Coin is ERC20, Ownable {
     return true;
   }
 
-  /** @dev Coin.at("0xc24c27e053c473f88ef51a92078a79d54ccec1bf").then(function(instance){return instance.approve('0xef75fe66c16771fe37d877da2c14083afd61e475', 20)});
+  /** @dev Coin.at("").then(function(instance){return instance.approve('', 20)});
    * @dev Approve the passed address to spend the specified amount of tokens on behalf of msg.sender.
    * Beware that changing an allowance with this method brings the risk that someone may use both the old
    * and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this
@@ -177,7 +177,7 @@ contract Coin is ERC20, Ownable {
     emit Transfer(address(0), _account, _amount);
   }
 
-  // @dev Coin.at("0x3b4c4ae5194a7134ab182ccfbd9fd3605dd54ecb").then(function(instance){return instance.giveCoins('0x235e90B0bB3F4c0875a96456d451a5733fb3C025', 100)});
+  // @dev Coin.at("").then(function(instance){return instance.giveCoins('', 100)});
   function giveCoins(address _to, uint256 _amount) public onlyOwner {
     _mint(_to, _amount);
   }

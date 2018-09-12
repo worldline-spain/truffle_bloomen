@@ -5,16 +5,19 @@ import "./Helper.sol";
 
 contract Asset is Ownable, Helper {
 
-    address[] whiteList;
+    mapping(address => bool) whiteList;
 
-    // @dev Song.at("0x87aca48453dd3edcb69b64dfa766e98e4242350a").then(function(instance) {return instance.allow(0x89eb0d7A5f7692a5D2b24276F9C1B10cA7Df601A)});
+    // @dev Song.at("").then(function(instance) {return instance.allow('')});
+    // @dev Film.at("").then(function(instance) {return instance.allow('')});
     function allow(address customer) public onlyOwner {
-        whiteList.push(customer);
+        whiteList[customer] = true;
     }
 
-    // @dev Song.at("0x87aca48453dd3edcb69b64dfa766e98e4242350a").then(function(instance) {return instance.getWhiteList())});
-    function getWhiteList() public view /* onlyOwner */ returns(address[]) {
-        return whiteList;
+    // @dev Song.at("").then(function(instance) {return instance.getContent()});
+    // @dev Film.at("").then(function(instance) {return instance.getContent()});
+    function getContent() public view returns (string) {
+        require(whiteList[msg.sender]);
+        return "Content of the asset";
     }
 
 }

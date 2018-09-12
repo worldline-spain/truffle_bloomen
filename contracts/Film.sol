@@ -5,12 +5,12 @@ import "./Asset.sol";
 contract Film is Asset {
 
     string name;
-    string author;
+    string genre;
     uint32 price;
  
-    constructor(string _name, string _author, uint32 _price) public {
+    constructor(string _name, string _genre, uint32 _price) public {
         name = _name;
-        author = _author;
+        genre = _genre;
         price = _price;
     }
 
@@ -19,9 +19,9 @@ contract Film is Asset {
         return name;
     }
 
-    // @dev Film.at("").then(function(instance) {return instance.getAuthor()});
-    function getAuthor() public view returns(string) {
-        return author;
+    // @dev Film.at("").then(function(instance) {return instance.getGenre()});
+    function getGenre() public view returns(string) {
+        return genre;
     }
 
     // @dev Film.at("").then(function(instance) {return instance.getPrice()});

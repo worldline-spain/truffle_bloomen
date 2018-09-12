@@ -51,11 +51,11 @@ The result of this may be something like this:
 ```javascript
 [ [ '0x50ad1d8f87b53dfa2b6bd8d2e079f9a8d29b9436' ], 'ShopName' ]
 ```
-Now we can interact with these new contracts. For exmaple, let's create a new song (the address of the music shop may differ from yours). The third parameter is the price of the song:
+Now we can interact with these new contracts. For example, let's create a new song (the address of the music shop may differ from yours). The third parameter is the price of the song:
 ```javascript
 MusicShop.at("0x50ad1d8f87b53dfa2b6bd8d2e079f9a8d29b9436").then(function(instance) { return instance.createSong("SongTitle", "Author", 20)});
 ```
-The music shop allows us to see the current songs addresses:
+The music shop allows us to see the current songs' addresses:
 ```javascript
 MusicShop.at("").then(function(instance) {return instance.showSongs()});
 ```

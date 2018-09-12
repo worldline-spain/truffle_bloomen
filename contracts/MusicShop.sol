@@ -36,7 +36,7 @@ contract MusicShop is BusinessItem {
         return (songs, names);
     }
 
-    // @dev MusicShop.at("").then(function(instance){return instance.buySong()})
+    // @dev MusicShop.at("").then(function(instance){return instance.buySong('', '')})
     function buySong(address _songAddress, address _coinAddress) public {
         require(bytes(songsMap[_songAddress]).length != 0);
         Song song = Song(_songAddress);

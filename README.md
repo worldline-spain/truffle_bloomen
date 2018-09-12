@@ -1,6 +1,7 @@
 # truffle_bloomen
 ## Description
-**truffle_bloomen** is an experimental project with Smart Contracts deployed to an Ethereum local network. It consist of a smart contract named BloomenIndex.
+**truffle_bloomen** is an experimental project with Smart Contracts deployed to an Ethereum local network. <br> 
+It consists in a Smart Contract named BloomenIndex, there you can create a new ERC20 Coin, MusicShop or WebTV. For example, in a MusicShop we can also create a new Song and some people can buy it using a certain Coin.      
 ## Getting started
 ### Requirements
 #### Node.js

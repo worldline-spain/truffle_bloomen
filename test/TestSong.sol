@@ -24,10 +24,10 @@ contract TestSong {
     Assert.equal(expected, author, "The get author of the Song has been done unsuccessfully");
   }
 
-  // function testGetPrice() public {
-  //   uint256 price = song.getPrice();
-  //   uint256 expected = 20;
-  //   Assert.equal(expected, price, "The get price of the Song has been done unsuccessfully");
-  // } 
+  function testGetPrice() public {
+    uint256 price = song.getPrice();
+    uint256 expected = 20;
+    Assert.equal(expected, price, "The get price of the Song has been done unsuccessfully");
+  } 
 
 }

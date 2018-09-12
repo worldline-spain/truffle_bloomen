@@ -24,10 +24,10 @@ contract TestFilm {
     Assert.equal(expected, genre, "The get genre of the Film has been done unsuccessfully");
   }
 
-  // function testGetPrice() public {
-  //   uint256 price = film.getPrice();
-  //   uint256 expected = 30;
-  //   Assert.equal(expected, price, "The get price of the Film has been done unsuccessfully");
-  // }
+  function testGetPrice() public {
+    uint256 price = film.getPrice();
+    uint256 expected = 30;
+    Assert.equal(expected, price, "The get price of the Film has been done unsuccessfully");
+  }
 
 }
